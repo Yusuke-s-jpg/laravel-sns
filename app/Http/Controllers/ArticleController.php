@@ -20,7 +20,7 @@ class ArticleController extends Controller
       return view('articles.create');
   }
 
-    public function store(ArticleRequest $request, Article $article )
+    public function store(ArticleRequest $request, Article $article)
   {
       $article->fill($request->all());
       $article->user_id = $request->user()->id;
@@ -28,8 +28,20 @@ class ArticleController extends Controller
       return redirect()->route('articles.index');
   }
 
-    public function edit(Article $article)
-    {
-        return view('article.edit', ['article => $article']);
-    }
+  public function edit(Article $article)
+  {
+      return view('articles.edit', ['article' => $article]);
+  }
+
+  public function update(ArticleRequest $request, Article $article)
+  {
+      $article->fill($request->all())->save();
+      return redirect()->route('articles.index');
+  }
+
+  public function destroy(Article $article)
+  {
+      $article->delete();
+      return redirect()->route('articles.index');
+  }
 }
