@@ -58,7 +58,7 @@ class PasswordResetNotification extends Notification
                     'auth.passwords.' .
                     config('auth.defaults.passwords') .
                     '.expire'
-                ),
+                  ),
             ]);
     }
 
