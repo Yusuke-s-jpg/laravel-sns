@@ -6,5 +6,6 @@ const app = new Vue({
   el: '#app',
   components: {
     ArticleLike,
+    ArticleTagsInput,
   }
 })
